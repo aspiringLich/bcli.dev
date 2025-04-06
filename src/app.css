@@ -13,10 +13,6 @@ main {
 }
 
 .prose {
-	> * {
-		margin: 0 2rem;
-	}
-
 	h1,
 	h2,
 	h3,
@@ -24,18 +20,53 @@ main {
 	h5,
 	h6 {
 		margin: 0;
-        @apply font-serif;
-	}
+		@apply relative;
 
-	h1 {
+		/* &:hover {
+			@apply underline;
+		} */
+	}
+    
+    h1 {
+		@apply underline underline-offset-4 font-serif;
 		font-size: 3rem;
 		line-height: calc(1 + 2 / 6);
+        counter-reset: heading 0;
 	}
+
+	h2 {
+        top: 0.5rem;
+		font-size: 2.2rem;
+		line-height: calc(4 / 2.2);
+        counter-reset: subheading 0;
+        counter-increment: heading;
+	}
+    
+    h3 {
+        top: -0.3rem;
+        font-size: 1.8rem;
+        line-height: calc(2  / 1.8);
+        counter-increment: subheading;
+    }
+
+	h2::before,
+	h3::before {
+		@apply absolute w-80 text-right pr-2 text-cyan-800 font-normal font-sans m-auto;
+        right: 100%;
+	}
+    
+    h2::before {
+        content: counter(heading);
+    }
+    
+    h3::before {
+        content: counter(heading) "-" counter(subheading);
+    }
 
 	p {
 		@apply text-justify hyphens-auto;
 		margin-bottom: 2rem;
-		line-height: calc(1 + 9/11);
+		line-height: calc(1 + 9 / 11);
 		font-size: 1.1rem;
 	}
 }
