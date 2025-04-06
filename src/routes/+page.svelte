@@ -1,5 +1,5 @@
 <h1>Welcome to SvelteKit</h1>
-<h2>Introduction</h2>
+<h2>Introduction </h2>
 <p>
 	Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, qui veritatis, quia doloremque
 	maxime voluptatem eius iusto praesentium reprehenderit nobis modi deserunt! Fugiat fugit, possimus
