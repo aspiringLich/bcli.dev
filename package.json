@@ -40,5 +40,10 @@
 		"onlyBuiltDependencies": [
 			"esbuild"
 		]
+	},
+	"dependencies": {
+		"@fontsource-variable/national-park": "^5.2.6",
+		"@fontsource/inter": "^5.2.8",
+		"@fontsource/varela-round": "^5.2.8"
 	}
 }

@@ -1,26 +1,34 @@
 <h1>Welcome to SvelteKit</h1>
-<h2>Introduction </h2>
+<h2>Introduction to this Article</h2>
 <p>
 	Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, qui veritatis, quia doloremque
 	maxime voluptatem eius iusto praesentium reprehenderit nobis modi deserunt! Fugiat fugit, possimus
 	recusandae fuga veniam aliquam vero beatae rerum officiis consequuntur pariatur necessitatibus
 	quibusdam. Commodi aliquid consequuntur
 </p>
-<h3>one</h3>
+<h3>Subheading to First Heading</h3>
 <p>
 	Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, qui veritatis, quia doloremque
 	maxime voluptatem eius iusto praesentium reprehenderit nobis modi deserunt! Fugiat fugit, possimus
 	recusandae fuga veniam aliquam vero beatae rerum officiis consequuntur pariatur necessitatibus
 	quibusdam. Commodi aliquid consequuntur
 </p>
-<h3>two</h3>
+<div>
+	<figure class="small">
+		<img
+			src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAItfT-10NsTBISPonmD_piC5Rif6D8l7JPg&s"
+			alt="Placeholder"
+		/>
+	</figure>
+</div>
+<h3>Second Subheading</h3>
 <p>
 	Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, qui veritatis, quia doloremque
 	maxime voluptatem eius iusto praesentium reprehenderit nobis modi deserunt! Fugiat fugit, possimus
 	recusandae fuga veniam aliquam vero beatae rerum officiis consequuntur pariatur necessitatibus
 	quibusdam. Commodi aliquid consequuntur
 </p>
-<h2>Yeah</h2>
+<h2>Oh Cool Another Main Heading</h2>
 <p>
 	Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation
 </p>

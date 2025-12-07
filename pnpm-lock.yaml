@@ -7,6 +7,16 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@fontsource-variable/national-park':
+        specifier: ^5.2.6
+        version: 5.2.6
+      '@fontsource/inter':
+        specifier: ^5.2.8
+        version: 5.2.8
+      '@fontsource/varela-round':
+        specifier: ^5.2.8
+        version: 5.2.8
     devDependencies:
       '@eslint/compat':
         specifier: ^1.2.5
@@ -279,8 +289,17 @@ packages:
     resolution: {integrity: sha512-ZAoA40rNMPwSm+AeHpCq8STiNAwzWLJuP8Xv4CHIc9wv/PSuExjMrmjfYNj682vW0OOiZ1HKxzvjQr9XZIisQA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
+  '@fontsource-variable/national-park@5.2.6':
+    resolution: {integrity: sha512-ryAd+ZTH4t4xAGFqbblVrJP2e5sOQfdiyfFC5oqkQWn3k2DzKzc/uoyUIm56zvw6h5SVlRHhyFn9CbjJEtBQaw==}
+
   '@fontsource/atkinson-hyperlegible@5.2.5':
     resolution: {integrity: sha512-looo8B/DHWsKG439j4hHsr2Fq3/CRkM9gpwxUu35aID4q24tYgxLmQqHbwAKA8+uV7y/fHnPkqBNsM83g+cu2A==}
+
+  '@fontsource/inter@5.2.8':
+    resolution: {integrity: sha512-P6r5WnJoKiNVV+zvW2xM13gNdFhAEpQ9dQJHt3naLvfg+LkF2ldgSLiF4T41lf1SQCM9QmkqPTn4TH568IRagg==}
+
+  '@fontsource/varela-round@5.2.8':
+    resolution: {integrity: sha512-9jati7lFSnJlz95e8nxTDFqvKNs3XY9fqYb6f8bUXCLa0iDGp0cvdkwRaTNYjYtrpB+ymrHMeNoVo5oEd/ubcg==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -1479,7 +1498,13 @@ snapshots:
       '@eslint/core': 0.13.0
       levn: 0.4.1
 
+  '@fontsource-variable/national-park@5.2.6': {}
+
   '@fontsource/atkinson-hyperlegible@5.2.5': {}
+
+  '@fontsource/inter@5.2.8': {}
+
+  '@fontsource/varela-round@5.2.8': {}
 
   '@humanfs/core@0.19.1': {}
 

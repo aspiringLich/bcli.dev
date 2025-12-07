@@ -1,79 +1,70 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 @import '@fontsource/atkinson-hyperlegible';
+@import '@fontsource-variable/national-park';
+@import '@fontsource/varela-round';
+@import '@fontsource/inter';
 
 @theme {
-	--font-sans: "Atkinson Hyperlegible";
+	--font-sans: 'Inter';
+	--font-rounded: 'National Park Variable';
+	--color-surface-50: theme('--color-neutral-50');
+	--color-surface-100: theme('--color-neutral-100');
+	--color-surface-200: theme('--color-neutral-200');
+	--color-surface-300: theme('--color-neutral-300');
 }
 
 body {
-	@apply bg-amber-50 min-h-[100vh] flex flex-col;
+	@apply bg-surface-100 min-h-[100vh] flex flex-col;
 }
 
 main {
-	@apply h-full;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 0);
-	background-size: 100% 2rem;
-	background-position: 0 -8.5px;
-}
+	@apply w-full !max-w-none;
 
-.prose {
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		margin: 0;
-		@apply relative;
-
-		/* &:hover {
-			@apply underline;
-		} */
+	> h2,
+	> h3,
+	> h4,
+	> h5,
+	> h6,
+	> p,
+	> aside,
+	> pre {
+		@apply max-w-md sm:max-w-lg md:max-w-xl lg:max-w-3xl;
+		@apply mx-auto;
 	}
 
-	h1 {
-		@apply underline underline-offset-4 font-serif;
-		font-size: 3rem;
-		line-height: calc(1 + 2 / 6);
-		counter-reset: heading 0;
-		margin-bottom: 2rem;
-	}
+	@apply prose lg:prose-lg;
+	@apply prose-headings:font-rounded;
+	@apply prose-h1:text-center lg:prose-h1:text-6xl prose-h1:text-5xl;
+	@apply prose-h3:px-4;
+	@apply prose-p:hyphens-auto prose-p:text-justify prose-p:px-4;
+	@apply prose-figure:my-0;
 
-	h2 {
-		top: -0.5rem;
-		font-size: 2.4rem;
-		line-height: calc(2 / 2.4);
-		counter-reset: subheading 0;
-		counter-increment: heading;
-	}
+	> div {
+		--grid: 2rem;
+		@media (width >= 64rem) {
+			--grid: 2.5rem;
+		}
+		background-image:
+			linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+		background-size: var(--grid) var(--grid);
+		background-position: 50% 0;
 
-	h3 {
-		top: -0.3rem;
-		font-size: 1.8rem;
-		line-height: calc(2 / 1.8);
-		counter-increment: subheading;
-	}
+		padding-top: calc(var(--grid) / 2);
+		padding-bottom: calc(var(--grid) / 2 + 1px);
+		@apply flex justify-center;
 
-	h2::before,
-	h3::before {
-		@apply absolute w-80 text-right pr-2 text-cyan-700 font-normal font-sans m-auto;
-		right: 100%;
-	}
+		figure.small {
+			height: calc(var(--grid) * 8);
 
-	h2::before {
-		content: counter(heading);
-	}
-
-	h3::before {
-		@apply font-medium;
-		content: counter(heading) '-' counter(subheading);
-	}
-
-	p {
-		@apply text-justify hyphens-auto;
-		margin-bottom: 2rem;
-		line-height: calc(1 + 9 / 11);
-		font-size: 1.1rem;
+			&:has(> img) {
+				> img {
+					box-sizing: border-box;
+					@apply border-2 border-neutral-900;
+					@apply !m-0 object-cover object-center w-full h-full;
+				}
+			}
+		}
 	}
 }
