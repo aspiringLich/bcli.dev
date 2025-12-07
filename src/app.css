@@ -5,9 +5,12 @@
 @import '@fontsource/varela-round';
 @import '@fontsource/inter';
 
+@import './code.css';
+
 @theme {
 	--font-sans: 'Inter';
 	--font-rounded: 'National Park Variable';
+	--font-varela: 'Varela Round';
 
 	--color-surface-50: theme('--color-neutral-50');
 	--color-surface-100: theme('--color-neutral-100');
@@ -25,7 +28,8 @@ body {
 	@apply bg-surface-100 min-h-[100vh] flex flex-col;
 }
 
-main {
+main > section,
+main > section > section {
 	@apply w-full !max-w-none;
 	> h2,
 	> h3,
@@ -34,22 +38,43 @@ main {
 	> h6,
 	> p,
 	> aside,
-	> pre {
+	> pre,
+	> ul,
+	> ol,
+	> table,
+	> blockquote {
 		@apply max-w-md sm:max-w-lg md:max-w-xl lg:max-w-3xl;
-		@apply mx-auto;
+		@apply !mx-auto;
 	}
 	@apply prose lg:prose-lg;
-	@apply prose-headings:font-rounded;
+	@apply prose-headings:font-rounded prose-h1:font-varela;
 	@apply prose-h1:text-center lg:prose-h1:text-6xl prose-h1:text-5xl;
-	@apply prose-p:hyphens-auto prose-p:text-justify prose-p:px-4;
+	> h4,
+	> h5,
+	> h6,
+	> p,
+	> aside,
+	> pre,
+	> ul,
+	> ol,
+	> table,
+	> blockquote {
+		@apply px-4;
+	}
 	@apply prose-figure:my-0;
+
+	p,
+	li,
+	blockquote,
+	aside {
+		@apply hyphens-auto text-justify;
+	}
 
 	/* HEADINGS */
 
 	counter-reset: primary;
 	@media (width >= 40rem /* 640px */) {
 		h2::before {
-			counter-increment: primary;
 			content: counter(primary);
 			width: 1lh;
 			left: calc(-1lh - var(--spacing));
@@ -92,7 +117,8 @@ main {
 		}
 		background-image:
 			linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-			linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+			linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+			linear-gradient(theme(--color-surface-200));
 		background-size: var(--grid) var(--grid);
 		background-position: 50% 0;
 
