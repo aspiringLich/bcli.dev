@@ -8,10 +8,17 @@
 @theme {
 	--font-sans: 'Inter';
 	--font-rounded: 'National Park Variable';
+
 	--color-surface-50: theme('--color-neutral-50');
 	--color-surface-100: theme('--color-neutral-100');
 	--color-surface-200: theme('--color-neutral-200');
 	--color-surface-300: theme('--color-neutral-300');
+	--color-surface-400: theme('--color-neutral-400');
+	--color-surface-500: theme('--color-neutral-500');
+	--color-surface-600: theme('--color-neutral-600');
+	--color-surface-700: theme('--color-neutral-700');
+	--color-surface-800: theme('--color-neutral-800');
+	--color-surface-900: theme('--color-neutral-900');
 }
 
 body {
@@ -20,7 +27,6 @@ body {
 
 main {
 	@apply w-full !max-w-none;
-
 	> h2,
 	> h3,
 	> h4,
@@ -32,13 +38,52 @@ main {
 		@apply max-w-md sm:max-w-lg md:max-w-xl lg:max-w-3xl;
 		@apply mx-auto;
 	}
-
 	@apply prose lg:prose-lg;
 	@apply prose-headings:font-rounded;
 	@apply prose-h1:text-center lg:prose-h1:text-6xl prose-h1:text-5xl;
-	@apply prose-h3:px-4;
 	@apply prose-p:hyphens-auto prose-p:text-justify prose-p:px-4;
 	@apply prose-figure:my-0;
+
+	/* HEADINGS */
+
+	counter-reset: primary;
+	@media (width >= 40rem /* 640px */) {
+		h2::before {
+			counter-increment: primary;
+			content: counter(primary);
+			width: 1lh;
+			left: calc(-1lh - var(--spacing));
+			background-color: var(--h-color-fg);
+			color: #ffffffdd;
+			@apply inline-block text-center rounded-full absolute;
+		}
+	}
+	h2 {
+		@apply relative;
+		text-decoration: underline wavy var(--h-color-fg);
+		&:nth-of-type(10n + 1) {
+			--h-color-fg: theme(--color-rose-400);
+			--h-color-text: theme(--color-rose-800);
+		}
+		&:nth-of-type(10n + 2) {
+			--h-color-fg: theme(--color-orange-400);
+			--h-color: theme(--color-orange-50);
+		}
+		&:nth-of-type(10n + 3) {
+			--h-color-fg: theme(--color-amber-400);
+			--h-color: theme(--color-amber-50);
+		}
+		&:nth-of-type(10n + 4) {
+			--h-color-fg: theme(--color-lime-400);
+			--h-color: theme(--color-lime-50);
+		}
+		&:nth-of-type(10n + 5) {
+			--h-color-fg: theme(--color-teal-400);
+			--h-color: theme(--color-teal-50);
+		}
+	}
+
+	/* EVERYTHING WITH FIGURES */
 
 	> div {
 		--grid: 2rem;
@@ -61,7 +106,7 @@ main {
 			&:has(> img) {
 				> img {
 					box-sizing: border-box;
-					@apply border-2 border-neutral-900;
+					@apply border-2 border-surface-800;
 					@apply !m-0 object-cover object-center w-full h-full;
 				}
 			}
