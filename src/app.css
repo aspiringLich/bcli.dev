@@ -4,64 +4,76 @@
 @import '@fontsource-variable/national-park';
 @import '@fontsource/varela-round';
 @import '@fontsource/inter';
+@import '@fontsource-variable/jetbrains-mono';
 
 @import './code.css';
+@import './colors.css';
 
 @theme {
 	--font-sans: 'Inter';
 	--font-rounded: 'National Park Variable';
 	--font-varela: 'Varela Round';
-
-	--color-surface-50: theme('--color-neutral-50');
-	--color-surface-100: theme('--color-neutral-100');
-	--color-surface-200: theme('--color-neutral-200');
-	--color-surface-300: theme('--color-neutral-300');
-	--color-surface-400: theme('--color-neutral-400');
-	--color-surface-500: theme('--color-neutral-500');
-	--color-surface-600: theme('--color-neutral-600');
-	--color-surface-700: theme('--color-neutral-700');
-	--color-surface-800: theme('--color-neutral-800');
-	--color-surface-900: theme('--color-neutral-900');
+	--font-mono: 'JetBrains Mono Variable';
 }
 
 body {
 	@apply bg-surface-100 min-h-[100vh] flex flex-col;
 }
 
+main > section {
+	counter-reset: primary;
+}
+main > section > section {
+	counter-increment: primary;
+}
+
 main > section,
 main > section > section {
 	@apply w-full !max-w-none;
-	> h2,
-	> h3,
-	> h4,
-	> h5,
-	> h6,
-	> p,
-	> aside,
-	> pre,
-	> ul,
-	> ol,
-	> table,
-	> blockquote {
-		@apply max-w-md sm:max-w-lg md:max-w-xl lg:max-w-3xl;
+	
+	--article-width: var(--container-md);
+	@media (width >= 40rem) {
+		--article-width: var(--container-lg);
+	}
+	@media (width >= 48rem) {
+		--article-width: var(--container-xl);
+	}
+	@media (width >= 64rem) {
+		--article-width: var(--container-3xl);
+	}
+	
+	h2 {
+		padding-left: calc(50% - var(--article-width) / 2);
+	}
+	> :is(h3, h4, h5, h6, p, aside, pre, ul, ol, table, blockquote) {
+		max-width: var(--article-width);
 		@apply !mx-auto;
 	}
-	@apply prose lg:prose-lg;
-	@apply prose-headings:font-rounded prose-h1:font-varela;
-	@apply prose-h1:text-center lg:prose-h1:text-6xl prose-h1:text-5xl;
-	> h4,
-	> h5,
-	> h6,
-	> p,
-	> aside,
-	> pre,
-	> ul,
-	> ol,
-	> table,
-	> blockquote {
-		@apply px-4;
+	> :is(h2, h3, h4, h5, h6) {
+		@apply font-rounded;
 	}
+	h1 {
+		@apply font-varela;
+	}
+	p:last-child,
+	p:has(+ section) {
+		margin-bottom: 0 !important;
+	}
+	@apply prose lg:prose-lg;
+	@apply prose-h1:text-center lg:prose-h1:text-6xl prose-h1:text-5xl;
 	@apply prose-figure:my-0;
+	code:not([class*='language-']) {
+		@apply before:content-none after:content-none px-0.5 rounded;
+		background-color: var(--color-accent-100);
+		color: var(--color-accent-800);
+	}
+	pre[class*='language-'] {
+		@apply border-1 border-surface-800;
+		background-color: transparent;
+	}
+	> :is(ul, ol) > li::marker {
+		color: var(--color-accent-300);
+	}
 
 	p,
 	li,
@@ -72,41 +84,36 @@ main > section > section {
 
 	/* HEADINGS */
 
-	counter-reset: primary;
+	strong,
+	b {
+		color: var(--color-accent-700);
+		text-shadow: 0 1px 0 var(--color-accent-300);
+	}
 	@media (width >= 40rem /* 640px */) {
-		h2::before {
+		h2::after {
 			content: counter(primary);
 			width: 1lh;
-			left: calc(-1lh - var(--spacing));
-			background-color: var(--h-color-fg);
-			color: #ffffffdd;
+			left: calc(50% - var(--article-width) / 2 - 1lh - var(--spacing) * 1.5);
+			background-color: var(--color-accent-400);
+			color: var(--color-accent-100);
+			text-shadow: 0 2px 0 var(--color-accent-700);
 			@apply inline-block text-center rounded-full absolute;
 		}
 	}
 	h2 {
-		@apply relative;
-		text-decoration: underline wavy var(--h-color-fg);
-		&:nth-of-type(10n + 1) {
-			--h-color-fg: theme(--color-rose-400);
-			--h-color-text: theme(--color-rose-800);
-		}
-		&:nth-of-type(10n + 2) {
-			--h-color-fg: theme(--color-orange-400);
-			--h-color: theme(--color-orange-50);
-		}
-		&:nth-of-type(10n + 3) {
-			--h-color-fg: theme(--color-amber-400);
-			--h-color: theme(--color-amber-50);
-		}
-		&:nth-of-type(10n + 4) {
-			--h-color-fg: theme(--color-lime-400);
-			--h-color: theme(--color-lime-50);
-		}
-		&:nth-of-type(10n + 5) {
-			--h-color-fg: theme(--color-teal-400);
-			--h-color: theme(--color-teal-50);
-		}
+		text-decoration: underline wavy var(--color-accent-400);
+		@apply inline-block pr-[0.5lh] rounded-r-full py-2;
+		background-color: var(--color-accent-200);
 	}
+	/* h2::before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100vw;
+		height: calc(1lh + var(--spacing) * 4);
+		z-index: -1;
+	} */
 
 	/* EVERYTHING WITH FIGURES */
 
@@ -117,8 +124,7 @@ main > section > section {
 		}
 		background-image:
 			linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-			linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-			linear-gradient(theme(--color-surface-200));
+			linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
 		background-size: var(--grid) var(--grid);
 		background-position: 50% 0;
 

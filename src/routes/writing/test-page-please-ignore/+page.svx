@@ -70,8 +70,8 @@ Additionally, the `{ JavaScript code }` syntax can be used for templating in HTM
 <small>completed {done}/{all}</small><br />
 
 {#each todos as { text, done }, index}
-	<input type="checkbox" bind:checked={todos[index].done} id={text} />	
-    <label for={text} class:done>{text}</label>
+	<input type="checkbox" bind:checked={todos[index].done} id={text} />
+	<label for={text} class:done>{text}</label>
 	<button onclick={() => todos.splice(index, 1)}>Remove</button>
 	<br />
 {/each}
@@ -94,3 +94,23 @@ Additionally, the `{ JavaScript code }` syntax can be used for templating in HTM
 	}
 </style>
 ```
+
+## Associated Projects
+
+The Svelte maintainers created SvelteKit as the official way to build projects with Svelte. It is a Next.js-style framework that dramatically reduces the amount of code that gets sent to the browser. The maintainers had previously created Sapper, which was the predecessor of SvelteKit.
+
+The Svelte maintainers also maintain a number of integrations for popular software projects under the Svelte organization including integrations for Vite, Rollup, Webpack, TypeScript, VS Code, Chrome Developer Tools, ESLint, and Prettier. A number of external projects such as Storybook have also created integrations with Svelte and SvelteKit.
+
+## Influence
+
+Vue.js modeled its API and single-file components after Ractive.js, the predecessor of Svelte.
+
+## Adoption
+
+Svelte is widely praised by developers. Taking the top ranking in multiple large scale developer surveys, it was chosen as the Stack Overflow 2021 most loved web framework and 2020 State of JS frontend framework with the most satisfied developers.
+
+Recent surveys continue to show Svelte's strong developer satisfaction, with the 2024 State of JS survey maintaining its position among the most praised frontend frameworks. The 2024 Stack Overflow Developer Survey reported that 73% of developers who used Svelte want to continue working with it, and noted that Stack Overflow's own team used Svelte for building their 2024 Developer Survey results site.
+
+Svelte has been adopted by a number of high-profile web companies including The New York Times, Google, Apple, Spotify, Radio France, Square, Yahoo, ByteDance, Rakuten, Bloomberg, Reuters, Ikea, Facebook, Logitech, and Brave.
+
+A community group of primarily non-maintainers, known as the Svelte Society, run the Svelte Summit conference, write a Svelte newsletter, host a Svelte podcast, and host a directory of Svelte tooling, components, and templates.
