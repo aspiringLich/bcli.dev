@@ -1,4 +1,10 @@
-# Svelte
+---
+title: Test Page Please Ignore
+description: Test Document
+created: 2025-12-07
+modified: 2025-12-07
+tags: []
+---
 
 **Svelte** is a free and open-source component-based front-end software framework and language created by Rich Harris and maintained by the Svelte core team.
 

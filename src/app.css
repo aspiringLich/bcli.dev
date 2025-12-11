@@ -17,19 +17,16 @@
 }
 
 body {
-	@apply bg-surface-100 min-h-[100vh] flex flex-col;
+	@apply bg-surface-200 min-h-[100vh] flex flex-col;
 }
 
-main > section {
+main {
+	@apply w-full xl:w-6xl bg-surface-100 mx-auto pb-20;
 	counter-reset: primary;
 }
-main > section > section {
-	counter-increment: primary;
-}
-
-main > section,
-main > section > section {
-	@apply w-full !max-w-none;
+main,
+main > section {
+	@apply !max-w-none;
 	
 	--article-width: var(--container-md);
 	@media (width >= 40rem) {
@@ -44,6 +41,7 @@ main > section > section {
 	
 	h2 {
 		padding-left: calc(50% - var(--article-width) / 2);
+		counter-increment: primary;
 	}
 	> :is(h3, h4, h5, h6, p, aside, pre, ul, ol, table, blockquote) {
 		max-width: var(--article-width);
@@ -53,7 +51,8 @@ main > section > section {
 		@apply font-rounded;
 	}
 	h1 {
-		@apply font-varela;
+		@apply font-varela mt-20;
+		text-shadow: 0 3px 0 var(--color-surface-400);
 	}
 	p:last-child,
 	p:has(+ section) {
@@ -126,7 +125,7 @@ main > section > section {
 			linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
 			linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
 		background-size: var(--grid) var(--grid);
-		background-position: 50% 0;
+		background-position: calc(50% - 1px) 0;
 
 		padding-top: calc(var(--grid) / 2);
 		padding-bottom: calc(var(--grid) / 2 + 1px);

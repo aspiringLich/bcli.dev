@@ -2,9 +2,19 @@ import { mdsvex } from 'mdsvex';
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import sectionize from 'remark-sectionize';
+import readingTime from 'mdsvex-reading-time';
+import slug from 'rehype-slug';
+import { outline } from '@bcli/plugins';
 
 const config = {
-	preprocess: [vitePreprocess(), mdsvex({ remarkPlugins: [sectionize] })],
+	preprocess: [
+		vitePreprocess(),
+		mdsvex({
+			remarkPlugins: [sectionize, readingTime, outline],
+			rehypePlugins: [slug],
+			layout: './src/routes/writing/layout.svelte'
+		})
+	],
 	kit: { adapter: adapter() },
 	extensions: ['.svelte', '.svx']
 };

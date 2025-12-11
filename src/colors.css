@@ -11,7 +11,7 @@
 	--color-surface-900: theme('--color-stone-900');
 }
 
-main > section {
+main {
 	--color-accent-100: theme(--color-surface-100);
 	--color-accent-200: theme(--color-surface-200);
 	--color-accent-300: theme(--color-surface-300);
@@ -22,7 +22,7 @@ main > section {
 	--color-accent-800: theme(--color-surface-800);
 	--color-accent-900: theme(--color-surface-900);
 }
-main > section > section {
+main > section {
 	&:nth-of-type(10n + 1) {
 		--color-accent-100: theme(--color-rose-100);
 		--color-accent-200: theme(--color-rose-200);
