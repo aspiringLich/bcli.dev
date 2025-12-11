@@ -22,7 +22,8 @@ main {
 	--color-accent-800: theme(--color-surface-800);
 	--color-accent-900: theme(--color-surface-900);
 }
-main > section {
+main > section,
+main > aside:first-of-type li {
 	&:nth-of-type(10n + 1) {
 		--color-accent-100: theme(--color-rose-100);
 		--color-accent-200: theme(--color-rose-200);
@@ -46,15 +47,15 @@ main > section {
 		--color-accent-900: theme(--color-orange-900);
 	}
 	&:nth-of-type(10n + 3) {
-		--color-accent-100: theme(--color-amber-100);
-		--color-accent-200: theme(--color-amber-200);
-		--color-accent-300: theme(--color-amber-300);
-		--color-accent-400: theme(--color-amber-400);
-		--color-accent-500: theme(--color-amber-500);
-		--color-accent-600: theme(--color-amber-600);
-		--color-accent-700: theme(--color-amber-700);
-		--color-accent-800: theme(--color-amber-800);
-		--color-accent-900: theme(--color-amber-900);
+		--color-accent-100: theme(--color-yellow-100);
+		--color-accent-200: theme(--color-yellow-200);
+		--color-accent-300: theme(--color-yellow-300);
+		--color-accent-400: theme(--color-yellow-400);
+		--color-accent-500: theme(--color-yellow-500);
+		--color-accent-600: theme(--color-yellow-600);
+		--color-accent-700: theme(--color-yellow-700);
+		--color-accent-800: theme(--color-yellow-800);
+		--color-accent-900: theme(--color-yellow-900);
 	}
 	&:nth-of-type(10n + 4) {
 		--color-accent-100: theme(--color-lime-100);
