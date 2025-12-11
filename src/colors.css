@@ -1,14 +1,14 @@
 @theme {
-	--color-surface-50: theme('--color-stone-50');
-	--color-surface-100: theme('--color-stone-100');
-	--color-surface-200: theme('--color-stone-200');
-	--color-surface-300: theme('--color-stone-300');
-	--color-surface-400: theme('--color-stone-400');
-	--color-surface-500: theme('--color-stone-500');
-	--color-surface-600: theme('--color-stone-600');
-	--color-surface-700: theme('--color-stone-700');
-	--color-surface-800: theme('--color-stone-800');
-	--color-surface-900: theme('--color-stone-900');
+	--color-surface-50: oklch(97% 0.001 106.424);
+	--color-surface-100: oklch(97% 0.001 106.424);
+	--color-surface-200: oklch(92.3% 0.003 48.717);
+	--color-surface-300: oklch(86.9% 0.005 56.366);
+	--color-surface-400: oklch(70.9% 0.01 56.259);
+	--color-surface-500: oklch(55.3% 0.013 58.071);
+	--color-surface-600: oklch(44.4% 0.011 73.639);
+	--color-surface-700: oklch(37.4% 0.01 67.558);
+	--color-surface-800: oklch(26.8% 0.007 34.298);
+	--color-surface-900: oklch(21.6% 0.006 56.043);
 }
 
 main {

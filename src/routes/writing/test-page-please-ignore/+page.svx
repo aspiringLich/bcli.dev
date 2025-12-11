@@ -20,14 +20,12 @@ The predecessor of Svelte is Ractive.js, which Rich Harris created in 2013.
 - Version 2 of Svelte was released on 19 April 2018. It set out to correct what the maintainers viewed as mistakes in the earlier version such as replacing double curly braces with single curly braces.
 - Version 3 of Svelte was written in TypeScript and was released on 21 April 2019. It rethought reactivity by using the compiler to instrument assignments behind the scenes.
 
-<div>
-	<figure class="small aspect-3/2">
-		<img
-			src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAItfT-10NsTBISPonmD_piC5Rif6D8l7JPg&s"
-			alt="Placeholder"
-		/>
-	</figure>
-</div>
+<figure class="">
+	<img
+		src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAItfT-10NsTBISPonmD_piC5Rif6D8l7JPg&s"
+		alt="Placeholder"
+	/>
+</figure>
 
 - The SvelteKit web framework was announced in October 2020 and entered beta in March 2021. SvelteKit 1.0 was released in December 2022 after two years in development.
 - Version 4 of Svelte was released on 22 June 2023. It was a maintenance release, smaller and faster than version 3. A part of this release was an internal rewrite from TypeScript back to JavaScript, with JSDoc type annotations. This was met with confusion from the developer community, which was addressed by the creator of Svelte, Rich Harris.

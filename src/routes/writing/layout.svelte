@@ -95,6 +95,10 @@
 
 <style lang="postcss">
 	@import 'tailwindcss';
+	
+	aside {
+		@apply xl:!-right-10 z-20;
+	}
 
 	nav li {
 		@apply list-none border-l-4 !m-0 !p-0;
@@ -107,15 +111,22 @@
 		background-color: var(--color-surface-200);
 
 		a {
-			@apply block py-1 pl-2;
+			@apply block py-1 pl-2  xl:border-r-2;
+			border-color: var(--color-surface-400);
 			color: inherit !important;
 		}
 
 		&:first-of-type {
-			@apply rounded-tl-sm;
+			@apply rounded-tl-sm xl:rounded-tr-sm;
+			a {
+				@apply rounded-tr-sm;
+			}
 		}
 		&:last-of-type {
-			@apply rounded-bl-sm;
+			@apply rounded-bl-sm xl:rounded-br-sm;
+			a {
+				@apply rounded-br-sm;
+			}
 		}
 
 		&:hover {

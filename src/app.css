@@ -21,9 +21,6 @@ body {
 }
 
 main {
-	@apply w-full xl:w-6xl bg-surface-100 mx-auto pb-20;
-	counter-reset: primary;
-	
 	--article-width: var(--container-md);
 	--left-padding: calc(50% - var(--article-width) / 2);
 	--aside-width: 0;
@@ -45,6 +42,10 @@ main {
 	@media (width >= 72rem) {
 		--article-width: var(--container-2xl);
 	}
+}
+main {
+	@apply w-full xl:w-6xl bg-surface-100 mx-auto pb-20;
+	counter-reset: primary;
 }
 main > aside:first-of-type {
 	@apply absolute right-0 leading-5 h-full;
@@ -134,31 +135,50 @@ main > section {
 
 	/* EVERYTHING WITH FIGURES */
 
-	> div {
+	> figure {
 		--grid: 2rem;
 		@media (width >= 64rem) {
 			--grid: 2.5rem;
 		}
+		@apply relative flex flex-col items-center justify-center;
+		@apply border-b-[1px] border-[rgba(0,0,0,0.1)] box-border;
+
 		background-image:
 			linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
 			linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
 		background-size: var(--grid) var(--grid);
-		background-position: calc(50% - 1px) 0;
-
-		padding-top: calc(var(--grid) / 2);
-		padding-bottom: calc(var(--grid) / 2 + 1px);
-		@apply flex justify-center;
-
-		figure.small {
-			height: calc(var(--grid) * 8);
-
-			&:has(> img) {
-				> img {
-					box-sizing: border-box;
-					@apply border-2 border-surface-800;
-					@apply !m-0 object-cover object-center w-full h-full;
-				}
-			}
+		background-position: calc(var(---left-padding) + var(--article-width) / 2 - 1px) 0;
+		
+		padding-left: var(--left-padding);
+		padding-right: calc(100% - var(--left-padding) - var(--article-width));
+		
+		&::before {
+			content: '';
+			@apply block top-0 left-0 absolute z-0;
+			height: calc(100% + 1px);
+			width: var(--left-padding);
+			background: linear-gradient(-90deg, transparent, var(--color-surface-100));
+		}
+		
+		&::after {
+			content: '';
+			@apply block top-0 right-0 absolute z-0;
+			height: calc(100% + 1px);
+			width: calc(100% - var(--left-padding) - var(--article-width));
+			background: linear-gradient(90deg, transparent, var(--color-surface-100));
+		}
+		
+		/* because of the padding, 100% is less than the full width */
+		--100: 100vw;
+		@media (width >= 80rem /* 1280px */) {
+			--100: var(--container-6xl);
+		}
+		---left-padding: calc(var(--100) / 2 - var(--article-width) / 2);
+		@media (width >= 48rem /* md */) {
+			---left-padding: min(
+				calc(var(--100) / 2 - var(--article-width) / 2),
+				calc(var(--100) - var(--aside-width) - var(--article-width) - var(--spacing) * 4)
+			);
 		}
 	}
 }
