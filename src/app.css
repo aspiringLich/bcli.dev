@@ -44,7 +44,7 @@ main {
 	}
 }
 main {
-	@apply w-full xl:w-6xl bg-surface-100 mx-auto pb-20;
+	@apply w-full lg:w-5xl bg-surface-100 mx-auto pb-20;
 	counter-reset: primary;
 }
 main > aside:first-of-type {
