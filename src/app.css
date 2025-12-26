@@ -17,35 +17,37 @@
 }
 
 body {
-	@apply bg-surface-200 min-h-[100vh] flex flex-col;
+	@apply bg-surface-200 min-h-[100vh];
 }
 
 main {
 	--article-width: var(--container-md);
 	--left-padding: calc(50% - var(--article-width) / 2);
-	--aside-width: 0;
 	@media (width >= 40rem /* sm */) {
 		--article-width: var(--container-lg);
+		--left-padding: 4rem;
 	}
 	@media (width >= 48rem /* md */) {
-		--article-width: var(--container-xl);
-		--aside-width: calc(var(--spacing) * 40);
-		--left-padding: min(
-			calc(50% - var(--article-width) / 2),
-			calc(100% - var(--aside-width) - var(--article-width) - var(--spacing) * 4)
-		);
+		--article-width: var(--container-2xl);
+		--left-padding: 6rem;
 	}
 	@media (width >= 64rem) {
 		--aside-width: calc(var(--spacing) * 56);
 		--article-width: var(--container-2xl);
+		--left-padding: 8rem;
+		@apply mr-0 m-10;
+		@apply rounded-sm border-l-1 border-r-1 border-surface-300;
+		
 	}
 	@media (width >= 72rem) {
-		--article-width: var(--container-2xl);
+		--left-padding: 12rem;
+		
 	}
 }
 main {
-	@apply w-full lg:w-5xl bg-surface-100 mx-auto pb-20;
+	@apply xl:w-6xl bg-surface-100 pb-20;
 	counter-reset: primary;
+	min-width: 0;
 }
 main > aside:first-of-type {
 	@apply absolute right-0 leading-5 h-full;
@@ -56,28 +58,18 @@ main > aside:first-of-type {
 }
 main,
 main > section {
-	@apply !max-w-none;
+	max-width: calc(var(--left-padding) * 2 + var(--article-width)) !important;
 
-	h2 {
-		padding-left: var(--left-padding);
-		counter-increment: primary;
-	}
 	> :is(h3, h4, h5, h6, p, aside, pre, ul, ol, table, blockquote) {
-		max-width: var(--article-width);
 		margin-left: var(--left-padding);
+		margin-right: var(--left-padding);
 	}
-	> :is(h2, h3, h4, h5, h6) {
-		@apply font-rounded;
-	}
-	h1 {
-		@apply font-varela mt-20;
-		text-shadow: 0 3px 0 var(--color-surface-400);
-	}
+
 	p:last-child,
 	p:has(+ section) {
 		margin-bottom: 0 !important;
 	}
-	@apply prose lg:prose-lg;
+	@apply prose;
 	@apply prose-h1:text-center lg:prose-h1:text-6xl prose-h1:text-5xl;
 	@apply prose-figure:my-0;
 	code:not([class*='language-']) {
@@ -99,13 +91,25 @@ main > section {
 	aside {
 		@apply hyphens-auto text-justify;
 	}
-
-	/* HEADINGS */
-
 	strong,
 	b {
 		color: var(--color-accent-700);
 		text-shadow: 0 1px 0 var(--color-accent-300);
+	}
+
+	/* HEADINGS */
+	h1 {
+		@apply text-6xl mb-0;
+		@apply font-varela pt-20;
+		text-shadow: 0 3px 0 var(--color-surface-400);
+	}
+	h2 {
+		@apply text-3xl;
+		padding-left: var(--left-padding);
+		counter-increment: primary;
+	}
+	> :is(h2, h3, h4, h5, h6) {
+		@apply font-rounded;
 	}
 	@media (width >= 40rem /* 640px */) {
 		h2::after {
@@ -123,15 +127,6 @@ main > section {
 		@apply inline-block pr-[0.5lh] rounded-r-full py-2;
 		background-color: var(--color-accent-200);
 	}
-	/* h2::before {
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100vw;
-		height: calc(1lh + var(--spacing) * 4);
-		z-index: -1;
-	} */
 
 	/* EVERYTHING WITH FIGURES */
 
@@ -148,10 +143,10 @@ main > section {
 			linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
 		background-size: var(--grid) var(--grid);
 		background-position: calc(var(---left-padding) + var(--article-width) / 2 - 1px) 0;
-		
+
 		padding-left: var(--left-padding);
 		padding-right: calc(100% - var(--left-padding) - var(--article-width));
-		
+
 		&::before {
 			content: '';
 			@apply block top-0 left-0 absolute z-0;
@@ -159,7 +154,7 @@ main > section {
 			width: var(--left-padding);
 			background: linear-gradient(-90deg, transparent, var(--color-surface-100));
 		}
-		
+
 		&::after {
 			content: '';
 			@apply block top-0 right-0 absolute z-0;
@@ -167,7 +162,7 @@ main > section {
 			width: calc(100% - var(--left-padding) - var(--article-width));
 			background: linear-gradient(90deg, transparent, var(--color-surface-100));
 		}
-		
+
 		/* because of the padding, 100% is less than the full width */
 		--100: 100vw;
 		@media (width >= 80rem /* 1280px */) {
